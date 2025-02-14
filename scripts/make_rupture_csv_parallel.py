@@ -48,7 +48,7 @@ if not ':' in os.path.abspath(os.sep) and ':' in rupture_dir:
     
 run_name = 'plate70'
 locking_model = True
-NZNSHM_scaling = True
+NZNSHM_scaling = False
 uniform_slip = False
 rake = False
 
