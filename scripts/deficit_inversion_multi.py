@@ -39,21 +39,12 @@ starting_rate_file = None # Set to None for random initialisation
 
 # %% No more user inputs below here
 
-if 'rccuser' in os.getcwd():
-    procdir = "/home/rccuser/MudPy/hires_ruptures"
-    deficit_file = f"{procdir}/model_info/slip_deficit_trenchlock.slip"
-    deficit_file = f"{procdir}/model_info/hk_hires.slip"
-elif 'uc03610' in os.getcwd():
-    procdir = "/nesi/nobackup/uc03610/jack/fakequakes/hikkerk/output"
-    deficit_file = f"{procdir}/../data/model_info/hk_hires.slip"
-    rupture_file = "rupture_df_n50000.csv"
-else:
-    procdir = "C:\\Users\\jdmcg\\Documents\\MudPy\\hikkerk\\output"
-    # Check to see if root is actually /mnt adjust accordingly
-    if not ':' in os.path.abspath(os.sep):
-        root = procdir.split(':')[0]
-        procdir = os.path.join(os.path.abspath(os.sep), 'mnt', root.lower(), procdir.split(':')[1][1:])
-    deficit_file = f"{procdir}/../data\\model_info\\{deficit_file}"
+procdir = "C:\\Users\\jdmcg\\Documents\\MudPy\\hikkerk\\output"
+# Check to see if root is actually /mnt adjust accordingly
+if not ':' in os.path.abspath(os.sep) and ':' in procdir:
+    root = procdir.split(':')[0]
+    procdir = os.path.join(os.path.abspath(os.sep), 'mnt', root.lower(), procdir.split(':')[1][1:])
+deficit_file = f"{procdir}/../data\\model_info\\{deficit_file}"
 
 outdir = os.path.abspath(os.path.join(procdir, inversion_name))
 if not os.path.exists(outdir):
