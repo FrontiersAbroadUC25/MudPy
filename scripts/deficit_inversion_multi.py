@@ -12,7 +12,7 @@ Script for running multiple subsets of full rupture catalgoue
 start = time()
 # %% Define Parameters
 # Naming and inputs
-inversion_name = 'FQ_plate_70_GR70-90'  # Name of directory results will be stored in
+inversion_name = 'FQ_plate70_GR70-90'  # Name of directory results will be stored in
 deficit_file = "hk_plate70.slip"  # Name of the file containing the target slip rate deficit (must be same patch geometry as the rupture sets)
 rupture_file = "plate70_locking_NZNSHMscaling_df_n250.csv"  # Name of the file containing the rupture slips (must be same patch geometry as the slip deficits, assumes ruptures stored in random Mw order)
 n_ruptures = 250  # Number of ruptures to use in each island

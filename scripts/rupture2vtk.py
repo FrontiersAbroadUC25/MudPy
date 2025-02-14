@@ -9,8 +9,8 @@ import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Polygon
 
-plot_ruptures = True  # True to plot ruptures, False to plot the outputs of the slip inversion
-n_ruptures = 5000  # Number of ruptures that were in each island of the inversion
+plot_ruptures = False  # True to plot ruptures, False to plot the outputs of the slip inversion
+n_ruptures = 250  # Number of ruptures that were in each island of the inversion
 
 project_name = 'hikkerk'
 run_base_name = 'plate70'
@@ -18,7 +18,7 @@ run_base_name = 'plate70'
 GR_inv_min = 7.0
 GR_inv_max = 9.0
 
-file_keyword = 'Mw'
+file_keyword = ''
 
 write_geojson = True  # Will write a geojson that can be viewed in GIS software
 write_vtks = False  # No need to set this to true - you don't have the software to view it anyway
@@ -32,7 +32,7 @@ lock = "_locking" if locking else "_nolocking"
 NZNSHM = "_NZNSHMscaling" if NZNSHMscaling else ""
 uniform = "_uniformSlip" if uniformSlip else ""
 
-inversion_name = f"FQ{lock}{uniform.replace('Slip', '')}_GR{str(GR_inv_min).replace('.', '')}-{str(GR_inv_max).replace('.', '')}"
+inversion_name = f"FQ_{run_base_name}_GR{str(GR_inv_min).replace('.', '')}-{str(GR_inv_max).replace('.', '')}"
 
 vtk = meshio.read(os.path.join(os.path.dirname(__file__), '..', 'data', 'hk_tiles.vtk'))
 proc_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', project_name, 'output'))
