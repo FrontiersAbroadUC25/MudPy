@@ -82,7 +82,7 @@ fcorner=1.0
 hurst=0.4 # Melgar and Hayes 2019 found Hurst exponent is probably closer to 0.4
 Ldip='auto' # Correlation length scaling, 'auto' uses Melgar & Hayes 2019
 Lstrike='auto' # MB2002 uses Mai & Beroza 2002
-NZNSHM_scaling = True # Enforce New Zealand NSHM scaling law of Mw = log10(area) + 4.0
+NZNSHM_scaling = False # Enforce New Zealand NSHM scaling law of Mw = log10(area) + 4.0
 lognormal=True # Keep this as true
 slip_standard_deviation=0.46 # Value from Melgar & Hayes 2019
 
