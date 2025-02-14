@@ -118,7 +118,7 @@ if init==1:
 #Generate rupture models
 if make_ruptures==1:
     mean_slip_name_list = [mean_slip_name]
-    NZNSHM_scaling_list = [True]
+    NZNSHM_scaling_list = [NZNSHM_scaling]
     for mean_slip_name in mean_slip_name_list:
         for NZNSHM_scaling in NZNSHM_scaling_list:
             if mean_slip_name is None:
