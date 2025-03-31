@@ -38,13 +38,13 @@ zero_rate = 1e-6
 prep_occ = False
 remove_zero_rates = True  # Only removed in the occ data format, not in the merged results
 
-procdir = "Z:\\McGrath\\HikurangiFakeQuakes\\hikkerk"
-occ_home_dir = "Z:\\McGrath\\occ-coseismic"
+procdir = os.getcwd() + "/hikkerk"
+occ_home_dir = os.getcwd() + "/occ-coseismic"
 if 'mnt' in os.getcwd():
-    drive = procdir.split(':\\')[0]
-    procdir = '/mnt/' + drive.lower() + '/' + '/'.join(procdir.split(':\\')[1].split('\\'))
-    drive = occ_home_dir.split(':\\')[0]
-    occ_home_dir = '/mnt/' + drive.lower() + '/' + '/'.join(occ_home_dir.split(':\\')[1].split('\\'))
+    drive = procdir.split(':/')[0]
+    procdir = '/mnt/' + drive.lower() + '/' + '/'.join(procdir.split(':/')[1].split('/'))
+    drive = occ_home_dir.split(':/')[0]
+    occ_home_dir = '/mnt/' + drive.lower() + '/' + '/'.join(occ_home_dir.split(':/')[1].split('/'))
 
 rupture_dir = os.path.join(procdir, 'output', f"FQ_{velmod}{lock}{uniform.replace('Slip', '')}_GR{str(GR_inv_min).replace('.', '')}-{str(GR_inv_max).replace('.', '')}")
 model_dir = os.path.join(procdir, 'data', 'model_info')

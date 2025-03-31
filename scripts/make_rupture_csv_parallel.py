@@ -40,7 +40,7 @@ def write_block(rupt_name, rupture_list, end, columns, rake=False):
     block_df.index.name = 'rupt_id'
     block_df.to_csv(os.path.abspath(os.path.join(rupture_dir, "..", f'{rupt_name}_df_n{end}{rake_tag}_block.csv')), header=True)
 
-rupture_dir = 'C:\\Users\\jdmcg\\Documents\\MudPy\\hikkerk\\output\\ruptures\\'
+rupture_dir = os.getcwd() + '/hikkerk/output/ruptures/'
 # Check to see if root is actually /mnt adjust accordingly
 if not ':' in os.path.abspath(os.sep) and ':' in rupture_dir:
     root = rupture_dir.split(':')[0]

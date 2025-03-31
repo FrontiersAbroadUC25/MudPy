@@ -14,12 +14,14 @@ start = time()
 # Naming and inputs
 inversion_name = 'FQ_plate70_GR70-90'  # Name of directory results will be stored in
 deficit_file = "hk_plate70.slip"  # Name of the file containing the target slip rate deficit (must be same patch geometry as the rupture sets)
-rupture_file = "plate70_locking_NZNSHMscaling_df_n250.csv"  # Name of the file containing the rupture slips (must be same patch geometry as the slip deficits, assumes ruptures stored in random Mw order)
+rupture_file = "plate70_locking_noNZNSHMscaling_df_n250.csv"  # Name of the file containing the rupture slips (must be same patch geometry as the slip deficits, assumes ruptures stored in random Mw order)
 n_ruptures = 250  # Number of ruptures to use in each island
 
 b, N = 1.1, 21.5  # B and N values to use for the GR relation
 min_Mw = 7.0  # Minimum magnitude to use to match GR-Rate
 max_Mw = 9.0  # Maximum magnitude to use to match GR-Rate
+
+# n_ruptures * n_islands should = number of total ruptures
 
 # Weighting
 rate_weight = 10  # Absolute misfit of slip deficit (int)
@@ -39,12 +41,12 @@ starting_rate_file = None # Set to None for random initialisation
 
 # %% No more user inputs below here
 
-procdir = "C:\\Users\\jdmcg\\Documents\\MudPy\\hikkerk\\output"
+procdir = os.getcwd() + "/hikkerk/output"
 # Check to see if root is actually /mnt adjust accordingly
 if not ':' in os.path.abspath(os.sep) and ':' in procdir:
     root = procdir.split(':')[0]
     procdir = os.path.join(os.path.abspath(os.sep), 'mnt', root.lower(), procdir.split(':')[1][1:])
-deficit_file = f"{procdir}/../data\\model_info\\{deficit_file}"
+deficit_file = f"{procdir}/../data/model_info/{deficit_file}"
 
 outdir = os.path.abspath(os.path.join(procdir, inversion_name))
 if not os.path.exists(outdir):
